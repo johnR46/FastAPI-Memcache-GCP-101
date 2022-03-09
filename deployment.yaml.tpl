@@ -15,7 +15,7 @@ spec:
         run: my-fast-api
     spec:
       containers:
-      - image: gcr.io/article-ci-cd/my-fast-api:latest 
+      - image: gcr.io/my-john-project-7313/my-fast-api:latest
         name: my-fast-api
         ports:
         - containerPort: 8080
