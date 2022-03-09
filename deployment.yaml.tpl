@@ -4,6 +4,7 @@ metadata:
   labels:
     run: my-fast-api
   name: my-fast-api
+  namespace: fastapi-memcache-dev
 spec:
   replicas: 2
   selector:
@@ -26,6 +27,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: my-fast-api
+  namespace: fastapi-memcache-devg
 spec:
   selector:
      run: my-fast-api
