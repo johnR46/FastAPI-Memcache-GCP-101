@@ -42,6 +42,5 @@ steps:
     id : Deploy to Cloud Run
     args:
     - 'run'
-    - 'services'
-    - 'replace'
+    - 'my-fast-api-memcache'
     - 'deployment.yaml'
