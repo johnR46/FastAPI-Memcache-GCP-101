@@ -38,7 +38,6 @@ steps:
         sed "s/latest/${SHORT_SHA}/g" > deployment.yaml
 
   # deploys the new version of our container image in the Kubernetes Engine cluster.
-  #The env takes a list of environment variables to be used when running the step. The are KEY=VALUE.
   - name: "gcr.io/cloud-builders/kubectl"
     id: Deploy
     args: ["apply", "-f", "deployment.yaml"]
