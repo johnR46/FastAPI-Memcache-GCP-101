@@ -11,14 +11,13 @@ steps:
 
   - name: "gcr.io/cloud-builders/docker"
     id: Build
-    args:
-      - "build"
-      - "--build-arg"
-      - "MEMCACHE_SERVER=${_MEMCACHE_SERVER}"
-      - "MEMCACHE_PORT=${_MEMCACHE_PORT}"
-      - "-t"
-      - "gcr.io/$PROJECT_ID/my-fast-api:$SHORT_SHA"
-      - "."
+    args: [ 'build',
+            '--build-arg',
+            'MEMCACHE_SERVER=${_MEMCACHE_SERVER}',
+            'MEMCACHE_PORT=${_MEMCACHE_PORT}',
+            '-t',
+            'gcr.io/$PROJECT_ID/my-fast-api:$SHORT_SHA',
+            '.' ]
   substitutions:
     _MEMCACHE_SERVER: "localhost" # default value
     _MEMCACHE_PORT: "11211" # default value
