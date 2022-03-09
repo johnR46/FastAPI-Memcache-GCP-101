@@ -16,21 +16,21 @@ spec:
         run: my-fast-api
     spec:
       containers:
-      - image: gcr.io/my-john-project-7313/my-fast-api:latest
-        name: my-fast-api
-        ports:
-        - containerPort: 8080
-        env:
-        - name: MEMCACHE_SERVER
-        valueFrom:
-          configMapKeyRef:
-            name: memcache-config
-        key: mem_ip
-        - name: MEMCACHE_PORT
-        valueFrom:
-          configMapKeyRef:
-            name: memcache-config
-        key: mem_port
+        - image: gcr.io/my-john-project-7313/my-fast-api:latest
+          name: my-fast-api
+          ports:
+            - containerPort: 8080
+          env:
+            - name: MEMCACHE_SERVER
+              valueFrom:
+                configMapKeyRef:
+                  name: memcache-config
+                  key: mem_ip
+            - name: MEMCACHE_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: memcache-config
+                  key: mem_port
 
 ---
 
