@@ -44,4 +44,4 @@ steps:
     args: ["apply", "-f", "deployment.yaml"]
     env:
       - "CLOUDSDK_COMPUTE_ZONE=asia-southeast1-b"
-      - "CLOUDSDK_CONTAINER_CLUSTER=article-ci-cd-k8s"
+      - "CLOUDSDK_CONTAINER_CLUSTER=my-john-k8s"
