@@ -22,7 +22,9 @@ steps:
   substitutions:
     _MEMCACHE_SERVER: "localhost" # default value
     _MEMCACHE_PORT: "11211" # default value
-
+  images: [
+      'gcr.io/$PROJECT_ID/my-fast-api:$SHORT_SHA'
+  ]
   # This step pushes the image to Container Registry
   - name: "gcr.io/cloud-builders/docker"
     id: Push
