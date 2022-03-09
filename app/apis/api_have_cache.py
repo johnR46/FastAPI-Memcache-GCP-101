@@ -28,6 +28,7 @@ async def find_by_id(todo_id: int):
     cache_value = get_value_from_cache(key)
     if cache_value is None:
         response = get_todo_by_id(todo_id)
+        set_value_to_cache(key, response)
         return response
     else:
         return cache_value
