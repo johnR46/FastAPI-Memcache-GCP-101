@@ -2,6 +2,7 @@ apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
   name: my-fast-api-memcache
+  namespace: fastapi-memcache-dev
 spec:
   template:
     spec:
