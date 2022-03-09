@@ -37,10 +37,11 @@ steps:
         sed "s/GOOGLE_CLOUD_PROJECT/${PROJECT_ID}/g" deployment.yaml.tpl | \
         sed "s/latest/${SHORT_SHA}/g" > deployment.yaml
 
-  # deploys the new version of our container image in the Kubernetes Engine cluster.
-  - name: "gcr.io/cloud-builders/kubectl"
-    id: Deploy
-    args: ["apply", "-f", "deployment.yaml"]
-    env:
-      - "CLOUDSDK_COMPUTE_ZONE=asia-southeast1-b"
-      - "CLOUDSDK_CONTAINER_CLUSTER=my-john-k8s"
+    # Deploy image to Cloud Run Google Cloud
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id : Deploy to Cloud Run
+    args:
+    - 'run'
+    - 'services'
+    - 'replace'
+    - 'deployment.yaml'
