@@ -1,33 +1,34 @@
 steps:
   # This step runs the unit tests on the app
-  - name: "python:3.8"
-    id: Test
-    entrypoint: /bin/sh
-    args:
-      - -c
-      - "pip install -r requirements.txt && pytest -v"
+- name: "python:3.8"
+  id: Test
+  entrypoint: /bin/sh
+  args:
+    - -c
+    - "pip install -r requirements.txt && pytest -v"
 
   # This step builds the container image.
 
-  - name: "gcr.io/cloud-builders/docker"
-    id: Build
-    args:
-      - "build"
-      - "--build-arg"
-      - "MEMCACHE_SERVER=${_MEMCACHE_SERVER}"
-      - "MEMCACHE_PORT=${_MEMCACHE_PORT}"
-      - "-t"
-      - "gcr.io/$PROJECT_ID/my-fast-api:$SHORT_SHA"
-      - "."
-  substitutions:
-    _MEMCACHE_SERVER: "localhost" # default value
-    _MEMCACHE_PORT: "11211" # default value
-  # This step pushes the image to Container Registry
-  - name: "gcr.io/cloud-builders/docker"
-    id: Push
-    args:
-      - "push"
-      - "gcr.io/$PROJECT_ID/my-fast-api:$SHORT_SHA"
+- name: "gcr.io/cloud-builders/docker"
+  id: Build
+  args:
+    - "build"
+    - "--build-arg"
+    - "MEMCACHE_SERVER=${_MEMCACHE_SERVER}"
+    - "MEMCACHE_PORT=${_MEMCACHE_PORT}"
+    - "-t"
+    - "gcr.io/$PROJECT_ID/my-fast-api:$SHORT_SHA"
+    - "."
+substitutions:
+  _MEMCACHE_SERVER: "localhost" # default value
+  _MEMCACHE_PORT: "11211" # default value
+
+# This step pushes the image to Container Registry
+- name: "gcr.io/cloud-builders/docker"
+  id: Push
+  args:
+    - "push"
+    - "gcr.io/$PROJECT_ID/my-fast-api:$SHORT_SHA"
 
   # generates the new manifest
   #the entrypoint in a build step to specify an entrypoint if you don't want to use the default entrypoint of the builder.
@@ -49,3 +50,6 @@ steps:
     env:
       - "CLOUDSDK_COMPUTE_ZONE=asia-southeast1-b"
       - "CLOUDSDK_CONTAINER_CLUSTER=my-john-k8s"
+
+
+
