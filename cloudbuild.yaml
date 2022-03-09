@@ -17,7 +17,7 @@ steps:
 #      - "gcr.io/$PROJECT_ID/my-fast-api:$SHORT_SHA"
 #      - '--build-arg=ENV=$_MEMCACHE_SERVER'
   substitutions:
-    _MEMCACHE_SERVERg: default value if not passed in the build command
+    _MEMCACHE_SERVER: default value if not passed in the build command
 
   # This step pushes the image to Container Registry
 
