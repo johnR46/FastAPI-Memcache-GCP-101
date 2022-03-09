@@ -27,7 +27,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: my-fast-api
-  namespace: fastapi-memcache-devg
+  namespace: fastapi-memcache-dev
 spec:
   selector:
      run: my-fast-api
