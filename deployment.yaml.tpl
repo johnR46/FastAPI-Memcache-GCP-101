@@ -20,6 +20,9 @@ spec:
         name: my-fast-api
         ports:
         - containerPort: 8080
+        env:
+        - name: _MEMCACHE_SERVER
+          value: "$(memcached-11211)"
 
 ---
 
