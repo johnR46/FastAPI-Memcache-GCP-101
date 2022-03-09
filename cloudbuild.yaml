@@ -14,7 +14,7 @@ steps:
       [
         "build",
         "--build-arg",
-        "MEMCACHE_SERVER=${_MEMCACHE_SERVER} MEMCACHE_PORT=${_MEMCACHE_PORT}",
+        "MEMCACHE_SERVER=${_MEMCACHE_SERVER}",
         "-t",
         "gcr.io/$PROJECT_ID/my-fast-api:$SHORT_SHA",
         ".",
@@ -47,7 +47,7 @@ steps:
     env:
       - "CLOUDSDK_COMPUTE_ZONE=asia-southeast1-b"
       - "CLOUDSDK_CONTAINER_CLUSTER=my-john-k8s"
-      
+
 substitutions:
   _MEMCACHE_SERVER: "localhost" # default value
   _MEMCACHE_PORT: "11211" # default value
