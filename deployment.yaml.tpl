@@ -20,6 +20,17 @@ spec:
         name: my-fast-api
         ports:
         - containerPort: 8080
+        env:
+        - name: MEMCACHE_SERVER
+        valueFrom:
+          configMapKeyRef:
+            name: memcache-config
+        key: mem_ip
+        - name: MEMCACHE_PORT
+        valueFrom:
+          configMapKeyRef:
+            name: memcache-config
+        key: mem_port
 
 ---
 
