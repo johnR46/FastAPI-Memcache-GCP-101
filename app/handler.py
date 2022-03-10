@@ -4,7 +4,7 @@ import logging
 from fastapi import FastAPI, Request
 from starlette.middleware.cors import CORSMiddleware
 
-from app.apis import api_have_cache, api_with_out_cache
+from app.apis import api_have_cache, api_with_out_cache, users
 
 origins = ['*']
 
@@ -46,3 +46,4 @@ async def add_process_time_header(request: Request, call_next):
 # add endpoint
 app.include_router(router=api_with_out_cache.router, prefix="/api/v1")
 app.include_router(router=api_have_cache.router, prefix="/api/v2")
+app.include_router(router=users.router, prefix="/api/v3")
