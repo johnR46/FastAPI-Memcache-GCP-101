@@ -31,6 +31,15 @@ spec:
                 configMapKeyRef:
                   name: memcache-config
                   key: mem_port
+            - name: DB_URL
+              value: my-db:5432/postgres
+            - name: DB_USER
+              value: postgres
+            - name: DB_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: my-db-secret
+                  key: postgres-password
 
 ---
 
