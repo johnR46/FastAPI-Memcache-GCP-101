@@ -32,7 +32,7 @@ spec:
                   name: memcache-config
                   key: mem_port
             - name: DB_URL
-              value: my-db:5432/postgres
+              value: my-db-postgresql:5432/postgres
             - name: DB_USER
               value: postgres
             - name: DB_PASS
