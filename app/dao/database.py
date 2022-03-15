@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 from settings import DB_USER, DB_PASS, DB_URL
 
 SQLALCHEMY_DATABASE_URL = "postgresql://{}:{}@{}".format(DB_USER, DB_PASS, DB_URL)
-
+print("SQLALCHEMY_DATABASE_URL : {}".format(SQLALCHEMY_DATABASE_URL))
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL
 )
