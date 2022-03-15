@@ -26,7 +26,7 @@ spec:
             - name: MEMCACHE_PORT
               value: 11211
             - name: DB_URL
-              value: my-db-postgresql:5432/postgres
+              value: postgres:5432/postgres
             - name: DB_USER
               value: postgres
             - name: DB_PASS
