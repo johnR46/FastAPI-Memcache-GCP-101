@@ -24,7 +24,7 @@ spec:
             - name: MEMCACHE_SERVER
               value: x-memcached
             - name: MEMCACHE_PORT
-              value: 11211
+              value: '11211'
             - name: DB_URL
               value: postgres:5432/postgres
             - name: DB_USER
