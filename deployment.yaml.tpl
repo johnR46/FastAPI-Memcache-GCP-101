@@ -26,7 +26,7 @@ spec:
             - name: MEMCACHE_PORT
               value: '11211'
             - name: DB_URL
-              value: postgres:5432/postgres
+              value:  postgres://postgres-service:5432/postgres
             - name: DB_PASS
               valueFrom:
                 secretKeyRef:
