@@ -22,15 +22,9 @@ spec:
             - containerPort: 8080
           env:
             - name: MEMCACHE_SERVER
-              valueFrom:
-                configMapKeyRef:
-                  name: memcache-config
-                  key: mem_ip
+              value: x-memcached
             - name: MEMCACHE_PORT
-              valueFrom:
-                configMapKeyRef:
-                  name: memcache-config
-                  key: mem_port
+              value: 11211
             - name: DB_URL
               value: my-db-postgresql:5432/postgres
             - name: DB_USER
