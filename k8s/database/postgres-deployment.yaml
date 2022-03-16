@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: postgres-deployment
+ namespace: fast-backend
+spec:
+ strategy:
+   rollingUpdate:
+     maxSurge: 1
+     maxUnavailable: 1
+   type: RollingUpdate
+ replicas: 1
+ selector:
+   matchLabels:
+     app: postgres-container
+ template:
+   metadata:
+     labels:
+       app: postgres-container
+   spec:
+     containers:
+       - name: postgres-container
+         image: postgres:10
+         resources:
+           limits:
+             cpu: "1"
+             memory: "4Gi"
+           requests:
+             cpu: "1"
+             memory: "2Gi"
+         ports:
+           - containerPort: 5432
+         env:
+           - name: PGDATA
+             value: /var/lib/postgresql/data/pgdata
+         envFrom:
+           - secretRef:
+              name: postgres-secret
+         volumeMounts:
+           - mountPath: /var/lib/postgresql/data
+             name: postgredb
+     volumes:
+       - name: postgredb
+         persistentVolumeClaim:
+           claimName: postgresql-pvc
