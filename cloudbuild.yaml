@@ -42,5 +42,5 @@ steps:
     id: Deploy
     args: ["apply", "-f", "deployment.yaml"]
     env:
-      - "CLOUDSDK_COMPUTE_ZONE=asia-southeast1-b"
-      - "CLOUDSDK_CONTAINER_CLUSTER=my-john-k8s"
+      - "CLOUDSDK_COMPUTE_ZONE=my-john-k8s-proof"
+      - "CLOUDSDK_CONTAINER_CLUSTER=my-john-k8s-proof"
