@@ -1,14 +1,4 @@
 steps:
-  # This step runs the unit tests on the app
-  - name: "python:3.8"
-    id: Test
-    entrypoint: /bin/sh
-    args:
-      - -c
-      - "pip install -r requirements.txt && pytest -v"
-
-  # This step builds the container image.
-
   - name: "gcr.io/cloud-builders/docker"
     id: Build
     args:
@@ -42,5 +32,5 @@ steps:
     id: Deploy
     args: ["apply", "-f", "deployment.yaml"]
     env:
-      - "CLOUDSDK_COMPUTE_ZONE=asia-southeast1-b"
-      - "CLOUDSDK_CONTAINER_CLUSTER=my-john-k8s"
+      - "CLOUDSDK_COMPUTE_ZONE=us-central1"
+      - "CLOUDSDK_CONTAINER_CLUSTER=my-john-k8s-proof"

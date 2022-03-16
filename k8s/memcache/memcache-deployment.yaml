@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cache-memcached
+  namespace: fast-backend
+  labels:
+    app: cache-memcached
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cache-memcached
+  template:
+    metadata:
+      labels:
+        app: cache-memcached
+    spec:
+      containers:
+        - name: memcached
+          image: launcher.gcr.io/google/memcached1
+          env:
+            - name: MEMCACHED_PROMETHEUS_ENABLED
+              value: "true"
