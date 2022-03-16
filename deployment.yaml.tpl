@@ -25,8 +25,10 @@ spec:
               value: cache-memcached-service
             - name: MEMCACHE_PORT
               value: '11211'
+            - name: DB_USER
+              value: mukulmantosh
             - name: DB_URL
-              value: postgres://postgres-service:5432/postgres
+              value: postgres://postgres-service:5432/sampledb
             - name: DB_PASS
               valueFrom:
                 secretKeyRef:
