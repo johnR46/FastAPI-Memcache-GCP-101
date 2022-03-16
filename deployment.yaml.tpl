@@ -28,7 +28,7 @@ spec:
             - name: DB_USER
               value: mukulmantosh
             - name: DB_URL
-              value: postgres://postgres-service:5432/sampledb
+              value: postgres-service:5432/sampledb
             - name: DB_PASS
               valueFrom:
                 secretKeyRef:
